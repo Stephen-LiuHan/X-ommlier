@@ -45,7 +45,7 @@ def remove(id):
 @app.route('/register', methods = ['POST'])
 def register():
     """
-    http://domain or IP/new　で新規データを追加
+    http://domain or IP/register　で新規データを追加
     """
     if request.method == 'POST':
         content = MainSys.register(request)
@@ -56,7 +56,7 @@ def light_led():
     http://domain or IP/led/light でledを点灯画面遷移
     """
     content = MainSys.light_led()
-    
+    return render_templeate('light.html', title='点灯', content=content)
 
 if __name__ == '__main__':
     app.run()
