@@ -42,20 +42,21 @@ def remove(id):
     content = MainSys.remove(id)
     return render_template('remove.html', title='削除完了', content=content)
 
-@app.route('/new', methods = ['POST'])
-def new():
+@app.route('/register', methods = ['POST'])
+def register():
     """
     http://domain or IP/new　で新規データを追加
     """
     if request.method == 'POST':
-        content = MainSys.new(request)
-        return render_templeate('new.html', title='追加', content=content)
+        content = MainSys.register(request)
+        return render_templeate('register.html', title='追加', content=content)
 @app.route('/led/light')
 def light_led():
     """
-    http://domain or IP/led/light でledを点灯
+    http://domain or IP/led/light でledを点灯画面遷移
     """
     content = MainSys.light_led()
+    
 
 if __name__ == '__main__':
     app.run()
